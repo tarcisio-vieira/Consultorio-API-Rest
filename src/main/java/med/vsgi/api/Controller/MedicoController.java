@@ -1,6 +1,7 @@
 package med.vsgi.api.Controller;
 
 import jakarta.validation.Valid;
+import med.vsgi.api.medico.DadosAtualizacaoMedico;
 import med.vsgi.api.medico.DadosCadastroMedico;
 import med.vsgi.api.medico.DadosListagemMedico;
 import med.vsgi.api.medico.Medico;
@@ -39,4 +40,69 @@ public class MedicoController {
 
     }
 
-}
+    @PutMapping
+    @Transactional //precisa de uma transação
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedico dados){  //outro DTO com menos campos
+
+        // System.out.println("ID solicitado: " + dados.id());
+
+        Medico medico = repository.getReferenceById(dados.id());
+
+        medico.atualizarInformacoes(dados);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id){  //outro DTO com menos campos
+
+        // Não apaga o registro mas inativa sua visualização , conceito de exclusão. devido a chaves estrangeiras e fica o historico
+
+        //Pega esse complemento /{id} com @PathVariable
+
+       // exclusao fisica usar repository.deleteById(id);
+
+        //Exclusão logica usar
+
+
+
+        System.out.println("Exclusão realizada com sucesso!");
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
