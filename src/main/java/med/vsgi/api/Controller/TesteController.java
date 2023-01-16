@@ -12,7 +12,7 @@ public class TesteController {
     @GetMapping
     public String testandoMesmo(){
 
-        return "Agora foi o teste pra valer!";
+        return "Agora foi o teste pra valer com GIT automatico!";
 
     }
 
