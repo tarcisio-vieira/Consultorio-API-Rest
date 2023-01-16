@@ -36,7 +36,7 @@ public class MedicoController {
 
        // System.out.println("Lista solicitada: " + paginacao);
 
-        return repository.findAll(paginacao).map(DadosListagemMedico::new) ;
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedico::new) ;
 
     }
 
@@ -51,17 +51,6 @@ public class MedicoController {
         medico.atualizarInformacoes(dados);
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,23 +75,5 @@ public class MedicoController {
         System.out.println("Exclusão realizada com sucesso!");
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
